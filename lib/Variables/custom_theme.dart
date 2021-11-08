@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobileapp/global.dart';
+import 'package:mobileapp/Variables/global.dart';
 
 class CustomTheme {
   static ThemeData light(BuildContext context) => ThemeData(

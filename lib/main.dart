@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/Screens/login.dart';
-import 'package:mobileapp/custom_theme.dart';
+import 'package:mobileapp/Variables/custom_theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
