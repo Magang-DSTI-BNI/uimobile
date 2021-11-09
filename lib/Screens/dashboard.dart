@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/Screens/drawer.dart';
+import 'package:mobileapp/Screens/login.dart';
+import 'package:mobileapp/Variables/global.dart';
 import 'package:mobileapp/Models/news.dart';
 import 'package:mobileapp/Models/pages.dart';
 import 'package:mobileapp/Screens/drawer.dart';
-import 'package:mobileapp/Variables/global.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({Key? key}) : super(key: key);
-
   @override
   State<StatefulWidget> createState() {
     return _DashboardScreen();
@@ -17,7 +19,7 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreen extends State<DashboardScreen> {
   final ScrollController _scrollController = ScrollController();
   final RefreshController _refreshController =
-      RefreshController(initialRefresh: false);
+  RefreshController(initialRefresh: false);
 
   void _onRefresh() async {
     final resp = await Pages.home.fetch(force: true);
@@ -61,38 +63,110 @@ class _DashboardScreen extends State<DashboardScreen> {
     super.dispose();
   }
 
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+  TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Beranda',
+      style: optionStyle,
+    ),
+    Text(
+      'Market',
+      style: optionStyle,
+    ),
+    Text(
+      'Akun',
+      style: optionStyle,
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      Image.asset(
-        'assets\\images\\bg\\login_bg.jpg',
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        fit: BoxFit.cover,
+    return Scaffold(
+      drawer: AppDrawer(),
+      appBar: AppBar(
+        elevation: 0,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              'UI Mobile-Staff',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.yellow[100],
       ),
-      Scaffold(
-          backgroundColor: Colors.transparent,
-          drawer: AppDrawer.widget,
-          appBar: AppBar(
-            shadowColor: (showBar) ? null : Colors.transparent,
-            backgroundColor: (showBar) ? null : Colors.transparent,
-            title: const Text("Dasbor"),
+      body: Center(
+        child: SmartRefresher(
+            scrollController: _scrollController,
+            controller: _refreshController,
+            onRefresh: _onRefresh,
+            child: (Pages.home.isLoading)
+                ? const Center(
+                child: SizedBox(
+                    height: 25,
+                    width: 25,
+                    child: CircularProgressIndicator()))
+                : SingleChildScrollView(
+              child: Column(
+                children: [Column(children: News.list(context))],
+              ),
+            )
+        ),
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Colors.yellow[100],
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20,
+              color: Colors.black.withOpacity(.1),
+            )
+          ],
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+            child: GNav(
+              rippleColor: Colors.yellow[500]!,
+              hoverColor: Colors.yellow[300]!,
+              gap: 8,
+              activeColor: Colors.black,
+              iconSize: 24,
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: Duration(milliseconds: 400),
+              tabBackgroundColor: Colors.yellow[300]!,
+              color: Colors.black,
+              tabs: [
+                GButton(
+                  icon: LineIcons.home,
+                  text: 'Beranda',
+                ),
+                GButton(
+                  icon: LineIcons.alternateStore,
+                  text: 'Market',
+                ),
+                GButton(
+                  icon: LineIcons.user,
+                  text: 'Akun',
+                ),
+              ],
+              selectedIndex: _selectedIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
+            ),
           ),
-          body: SmartRefresher(
-              scrollController: _scrollController,
-              controller: _refreshController,
-              onRefresh: _onRefresh,
-              child: (Pages.home.isLoading)
-                  ? const Center(
-                      child: SizedBox(
-                          height: 25,
-                          width: 25,
-                          child: CircularProgressIndicator()))
-                  : SingleChildScrollView(
-                      child: Column(
-                        children: [Column(children: News.list(context))],
-                      ),
-                    )))
-    ]);
+        ),
+      ),
+    );
   }
 }
