@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart' as html show parse;
+import 'package:mobileapp/Variables/global.dart';
 
 class NewsData {
   String title = "N/A";
@@ -14,8 +15,10 @@ class NewsData {
     final tags = element.innerHtml.split("<br>").first.split("</b>").last;
     tag = tags.substring(2, tags.length - 1);
     title = element.getElementsByTagName("a").first.text;
-    link = "https://sipeg.ui.ac.id" +
-        (element.getElementsByTagName("a").first.attributes["href"] ?? "");
+    link = Global.url.root
+        .append(
+            (element.getElementsByTagName("a").first.attributes["href"] ?? ""))
+        .str;
   }
 }
 

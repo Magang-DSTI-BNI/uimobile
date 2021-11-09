@@ -5,7 +5,30 @@ class CustomColors {
   Color yellow = const Color.fromRGBO(247, 212, 23, 1); //#F7D417
 }
 
+class Url {
+  String str;
+  Uri get uri => Uri.parse(str);
+  Url(this.str);
+  Url append(String url) {
+    str += url;
+    return this;
+  }
+}
+
+class Urls {
+  late Url root;
+  late Url login = root.append('/ng/otorisasi/login');
+  late Url logout = root.append('/ng/otorisasi/logout');
+  late Url main = root.append('/ng/main');
+  late Url ping = root.append('/ng/ping');
+
+  Urls({String? root}) {
+    this.root = Url(root ?? "https://sipeg.ui.ac.id");
+  }
+}
+
 class Global {
+  static Urls url = Urls(root: "http://192.168.137.1");
   static Credential credential = Credential();
   static CustomColors colors = CustomColors();
   static void snackbar(BuildContext context, String msg,
