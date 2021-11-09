@@ -55,7 +55,7 @@ class _LoginScreen extends State<LoginScreen> {
             body: Stack(alignment: Alignment.topCenter, children: [
           SingleChildScrollView(
               child: Image.asset(
-            'assets\\images\\bg\\login_bg.jpg',
+            'assets/images/bg/login_bg.jpg',
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             fit: BoxFit.cover,
@@ -73,7 +73,7 @@ class _LoginScreen extends State<LoginScreen> {
                 color: Colors.white,
               ),
               child: Image.asset(
-                "assets\\images\\icons\\logo_original.png",
+                "assets/images/icons/logo_original.png",
               ),
             ),
             const SizedBox(

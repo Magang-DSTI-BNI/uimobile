@@ -27,12 +27,15 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  google_nav_bar: ^5.0.5
   flutter:
     sdk: flutter
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
+  line_icons: ^2.0.1
+  badges: ^2.0.0-nullsafety.1
   cupertino_icons: ^1.0.2
   rename: ^1.3.1
   shared_preferences: ^2.0.8
@@ -80,8 +83,11 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/
-    
+
+    - assets/images/bg/
+    - assets/images/icons/
+    - assets/images/icons/splash/
+
   fonts:
     - family: PlusJakartaSans
       fonts:

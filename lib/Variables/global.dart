@@ -32,7 +32,7 @@ class Global {
   static CustomColors colors = CustomColors();
   static void snackbar(BuildContext context, String msg,
       {Duration duration = const Duration(seconds: 1),
-      SnackBarAction? action}) {
+        SnackBarAction? action}) {
     ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(msg), action: action, duration: duration));
   }
