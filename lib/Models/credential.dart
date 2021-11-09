@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/Variables/global.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -49,8 +50,7 @@ class Credential {
   Future<bool> login({String? username, String? password}) async {
     return true;
     try {
-      final resp = await http
-          .post(Uri.parse('https://sipeg.ui.ac.id/ng/otorisasi/login'), body: {
+      final resp = await http.post(Global.url.login.uri, body: {
         'mode': 'normal',
         'username': username ?? this.username,
         'passwd': password ?? this.password,
@@ -77,9 +77,8 @@ class Credential {
 
   Future<bool> logout() async {
     try {
-      final resp = await http.get(
-          Uri.parse('https://sipeg.ui.ac.id/ng/otorisasi/logout'),
-          headers: {"cookie": cookie});
+      final resp =
+          await http.get(Global.url.logout.uri, headers: {"cookie": cookie});
       if (resp.statusCode == 302 || resp.statusCode == 200) {
         _isLogin = false;
         if (!rememberMe) {

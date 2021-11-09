@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:mobileapp/Models/credential.dart';
 import 'package:mobileapp/Variables/global.dart';
 
 class Page {
   bool _isLoading = true;
   bool _hasError = false;
-  final String _url;
+  final Url _url;
   Page(this._url);
   http.Response? _resp;
   Future<http.Response?> fetch({force = false}) async {
@@ -20,14 +19,14 @@ class Page {
       }
       _resp = null;
       var resp = await http
-          .get(Uri.parse(_url), headers: {"cookie": Global.credential.cookie});
+          .get(_url.uri, headers: {"cookie": Global.credential.cookie});
       if (resp.statusCode == 200) {
         if (resp.body.contains(
             "adalah aplikasi berbasis web yang digunakan untuk menunjang proses administrasi")) {
           debugPrint("$_url Request to Refresh");
           if (await Global.credential.refresh()) {
-            resp = await http.get(Uri.parse(_url),
-                headers: {"cookie": Global.credential.cookie});
+            resp = await http
+                .get(_url.uri, headers: {"cookie": Global.credential.cookie});
             if (resp.statusCode != 200) {
               debugPrint("$_url Refresh and Fetched Failed");
               _isLoading = false;
@@ -66,5 +65,5 @@ class Page {
 }
 
 class Pages {
-  static Page home = Page('https://sipeg.ui.ac.id/ng/main');
+  static Page home = Page(Global.url.main);
 }
