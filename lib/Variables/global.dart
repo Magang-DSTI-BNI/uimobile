@@ -10,8 +10,7 @@ class Url {
   Uri get uri => Uri.parse(str);
   Url(this.str);
   Url append(String url) {
-    str += url;
-    return this;
+    return Url(str + url);
   }
 }
 
@@ -28,7 +27,7 @@ class Urls {
 }
 
 class Global {
-  static Urls url = Urls(root: "http://192.168.137.1");
+  static Urls url = Urls(root: "http://192.168.137.50");
   static Credential credential = Credential();
   static CustomColors colors = CustomColors();
   static void snackbar(BuildContext context, String msg,
