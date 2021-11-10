@@ -72,7 +72,7 @@ class _DashboardScreen extends State<DashboardScreen> {
       ),
       Scaffold(
           backgroundColor: Colors.transparent,
-          drawer: AppDrawer.widget,
+          drawer: AppDrawer(),
           appBar: AppBar(
             shadowColor: (showBar) ? null : Colors.transparent,
             backgroundColor: (showBar) ? null : Colors.transparent,
