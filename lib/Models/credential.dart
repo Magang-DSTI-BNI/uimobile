@@ -48,7 +48,6 @@ class Credential {
   }
 
   Future<bool> login({String? username, String? password}) async {
-    return true;
     try {
       final resp = await http.post(Global.url.login.uri, body: {
         'mode': 'normal',

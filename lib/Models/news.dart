@@ -53,7 +53,9 @@ class News {
               child: SizedBox(
                 height: 100,
                 width: MediaQuery.of(context).size.width,
-                child: Text(i.title),
+                child: Column(
+
+                    children:[Text(i.title),Text(i.category)]),
               ),
             )))
         .toList();

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:mobileapp/Screens/dashboard.dart';
+import 'package:mobileapp/Screens/main_screen.dart';
 import 'package:mobileapp/Variables/global.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -30,7 +31,7 @@ class _LoginScreen extends State<LoginScreen> {
           Global.credential.login().then((valueLogin) {
             if (valueLogin) {
               Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (_) => DashboardScreen()));
+                  MaterialPageRoute(builder: (_) => MainScreen()));
             } else {
               setState(() => _loginLoad = false);
             }
@@ -172,7 +173,7 @@ class _LoginScreen extends State<LoginScreen> {
                                                   .pushReplacement(
                                                       MaterialPageRoute(
                                                           builder: (_) =>
-                                                              DashboardScreen()));
+                                                              MainScreen()));
                                             } else {
                                               Global.snackbar(
                                                   context, "Tidak dapat masuk");
