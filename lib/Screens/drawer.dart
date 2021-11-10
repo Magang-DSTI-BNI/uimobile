@@ -39,43 +39,35 @@ class AppDrawer extends StatelessWidget {
                     height: 1,
                     thickness: 1,
                   ),
-                  const SizedBox(height: 24),
-                  buildMenuItem(
-                    text: 'People',
-                    icon: Icons.people,
-                    onClicked: () => selectedItem(context, 0),
+                  const SizedBox(height: 12),
+                  CircleAvatar(
+                    radius: 40,
                   ),
-                  const SizedBox(height: 16),
-                  buildMenuItem(
-                    text: 'Favourites',
-                    icon: Icons.favorite_border,
-                    onClicked: () => selectedItem(context, 1),
+                  Text(
+                    'nama',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                  const SizedBox(height: 16),
-                  buildMenuItem(
-                    text: 'Workflow',
-                    icon: Icons.workspaces_outline,
-                    onClicked: () => selectedItem(context, 2),
-                  ),
-                  const SizedBox(height: 16),
-                  buildMenuItem(
-                    text: 'Updates',
-                    icon: Icons.update,
-                    onClicked: () => selectedItem(context, 3),
-                  ),
-                  const SizedBox(height: 24),
-                  Divider(color: Colors.white70),
                   const SizedBox(height: 24),
                   buildMenuItem(
                     text: 'Notifikasi',
                     icon: Icons.notifications_outlined,
-                    onClicked: () => selectedItem(context, 4),
+                    onClicked: () => selectedItem(context, 1),
+                  ),
+                  const SizedBox(height: 16),
+                  buildMenuItem(
+                    text: 'Pengaturan',
+                    icon: Icons.settings,
+                    onClicked: () => selectedItem(context, 2),
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
                     text: 'Keluar',
                     icon: Icons.logout,
-                    onClicked: () => selectedItem(context, 5),
+                    onClicked: () => selectedItem(context, 3),
                   ),
                 ],
               ),
@@ -169,7 +161,7 @@ class AppDrawer extends StatelessWidget {
     Navigator.of(context).pop();
 
     switch (index) {
-      case 5:
+      case 3:
         Global.credential.logout().then((value) {
           if(value){
           Navigator.of(context).pushReplacement(MaterialPageRoute(

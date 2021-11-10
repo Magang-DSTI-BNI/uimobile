@@ -7,6 +7,7 @@ import 'package:mobileapp/Models/pages.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:mobileapp/Screens/akuntab/menu_akun.dart';
 
 class AkunScreen extends StatefulWidget {
   const AkunScreen({Key? key}) : super(key: key);
@@ -19,23 +20,53 @@ class _AkunScreenState extends State<AkunScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
-        children: [
-          SizedBox(
+      body:SingleChildScrollView(
+        padding: EdgeInsets.symmetric(vertical: 20),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 115,
+              width: 115,
+              child: Stack(
+                fit: StackFit.expand,
+                clipBehavior: Clip.none,
+                children: [
+                  CircleAvatar(
 
-            height: 115,
-            width: 115,
-            child: Stack(
-              fit: StackFit.expand,
-              clipBehavior: Clip.none,
-              children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage("assets/images/Profile Image.png"),
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 8, 0, 16),
+              child: Text(
+                'nama',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+
+            ProfileMenu(
+              text: "Data diri",
+              press: () {},
+            ),
+            ProfileMenu(
+              text: "Status kepegawaian",
+              press: () {},
+            ),
+            ProfileMenu(
+              text: "Karir",
+              press: () {},
+            ),
+            ProfileMenu(
+              text: "Pendidikan",
+              press: () {},
+            ),
+          ],
+        ),
       )
     );
   }
