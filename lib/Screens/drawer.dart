@@ -3,6 +3,8 @@ import 'package:line_icons/line_icons.dart';
 import 'package:mobileapp/Screens/login.dart';
 import 'dart:ui' show ImageFilter;
 
+import 'package:mobileapp/Variables/global.dart';
+
 class AppDrawer extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
   @override
@@ -25,8 +27,8 @@ class AppDrawer extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.all(16),
                     child: Text(
-                        'UI Mobile-Staff',
-                      style:TextStyle(
+                      'UI Mobile-Staff',
+                      style: TextStyle(
                         color: Colors.black,
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
@@ -34,7 +36,7 @@ class AppDrawer extends StatelessWidget {
                     ),
                   ),
                   Divider(
-                    height:1,
+                    height: 1,
                     thickness: 1,
                   ),
                   const SizedBox(height: 24),
@@ -168,9 +170,15 @@ class AppDrawer extends StatelessWidget {
 
     switch (index) {
       case 5:
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => LoginScreen(),
-        ));
+        Global.credential.logout().then((value) {
+          if(value){
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (context) => LoginScreen(),
+          ));
+          }else{
+            Global.snackbar(context, 'tidak dapat keluar');
+          }
+        });
         break;
     }
   }
