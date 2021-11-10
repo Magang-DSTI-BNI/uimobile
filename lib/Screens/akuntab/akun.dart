@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icon.dart';
 import 'package:mobileapp/Screens/drawer.dart';
 import 'package:mobileapp/Screens/login.dart';
 import 'package:mobileapp/Variables/global.dart';
@@ -20,6 +21,7 @@ class _AkunScreenState extends State<AkunScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       body:SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: 20),
         child: Column(
@@ -50,18 +52,22 @@ class _AkunScreenState extends State<AkunScreen> {
             ),
 
             ProfileMenu(
+              icon: LineIcons.addressCard,
               text: "Data diri",
               press: () {},
             ),
             ProfileMenu(
+              icon:LineIcons.sitemap,
               text: "Status kepegawaian",
               press: () {},
             ),
             ProfileMenu(
+              icon:Icons.business,
               text: "Karir",
               press: () {},
             ),
             ProfileMenu(
+              icon:LineIcons.graduationCap,
               text: "Pendidikan",
               press: () {},
             ),

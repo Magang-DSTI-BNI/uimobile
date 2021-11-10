@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:mobileapp/Screens/login.dart';
 import 'dart:ui' show ImageFilter;
-
+import 'package:mobileapp/Screens/settings.dart';
 import 'package:mobileapp/Variables/global.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -117,30 +117,6 @@ class AppDrawer extends StatelessWidget {
         ),
       );
 
-  Widget buildSearchField() {
-    final color = Colors.black;
-
-    return TextField(
-      style: TextStyle(color: color),
-      decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-        hintText: 'Search',
-        hintStyle: TextStyle(color: color),
-        prefixIcon: Icon(Icons.search, color: color),
-        filled: true,
-        fillColor: Colors.white12,
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
-          borderSide: BorderSide(color: color.withOpacity(0.7)),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
-          borderSide: BorderSide(color: color.withOpacity(0.7)),
-        ),
-      ),
-    );
-  }
-
   Widget buildMenuItem({
     required String text,
     required IconData icon,
@@ -161,6 +137,11 @@ class AppDrawer extends StatelessWidget {
     Navigator.of(context).pop();
 
     switch (index) {
+      case 2:
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context)=>SettingsScreen(),
+        ));
+        break;
       case 3:
         Global.credential.logout().then((value) {
           if(value){

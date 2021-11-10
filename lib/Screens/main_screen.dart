@@ -41,7 +41,7 @@ class _MainScreenState extends State<MainScreen> {
           ],
         ),
         centerTitle: true,
-        backgroundColor: Colors.yellow[100],
+        backgroundColor: Colors.yellow[200],
       ),
       body:pageList[pageIndex],
       bottomNavigationBar: Container(
