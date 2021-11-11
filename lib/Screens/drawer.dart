@@ -41,6 +41,7 @@ class AppDrawer extends StatelessWidget {
                   CircleAvatar(
                     radius: 40,
                   ),
+                  const SizedBox(height: 12,),
                   Text(
                     'nama',
                     style: TextStyle(
