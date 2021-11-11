@@ -21,7 +21,6 @@ class _AkunScreenState extends State<AkunScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
       body:SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: 20),
         child: Column(
@@ -44,7 +43,6 @@ class _AkunScreenState extends State<AkunScreen> {
               child: Text(
                 'nama',
                 style: TextStyle(
-                  color: Colors.black,
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
                 ),

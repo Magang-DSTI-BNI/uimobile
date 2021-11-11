@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/Screens/login.dart';
 import 'package:mobileapp/Variables/custom_theme.dart';
+import 'package:provider/provider.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,14 +12,19 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'UI Mobile - Staff',
-      home: const LoginScreen(),
-      themeMode: ThemeMode.system,
-      theme: CustomTheme.light(context),
-      darkTheme: CustomTheme.dark(context),
-      debugShowCheckedModeBanner: false,
-    );
-  }
+  Widget build(BuildContext context) => ChangeNotifierProvider(
+        create: (context) => ThemeProvider(),
+        builder: (context, _) {
+          final themeProvider = Provider.of<ThemeProvider>(context);
+
+          return MaterialApp(
+            title: 'UI Mobile - Staff',
+            home: const LoginScreen(),
+            themeMode: themeProvider.themeMode,
+            theme: CustomTheme.light(context),
+            darkTheme: CustomTheme.dark(context),
+            debugShowCheckedModeBanner: false,
+          );
+        },
+      );
 }

@@ -9,14 +9,13 @@ class AppDrawer extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
   @override
   Widget build(BuildContext context) {
-    final name = 'Sarah Abs';
-    final email = 'sarah@abs.com';
-    final urlImage =
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
 
     return Drawer(
       child: Material(
-        color: Colors.yellow[200],
+        color:  Theme.of(context).primaryColor,
+        textStyle: TextStyle(
+          color:  Theme.of(context).textTheme.bodyText1!.color,
+        ),
         child: ListView(
           children: <Widget>[
             Container(
@@ -29,7 +28,6 @@ class AppDrawer extends StatelessWidget {
                     child: Text(
                       'UI Mobile-Staff',
                       style: TextStyle(
-                        color: Colors.black,
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
                       ),
@@ -46,7 +44,6 @@ class AppDrawer extends StatelessWidget {
                   Text(
                     'nama',
                     style: TextStyle(
-                      color: Colors.black,
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                     ),
@@ -55,18 +52,21 @@ class AppDrawer extends StatelessWidget {
                   buildMenuItem(
                     text: 'Notifikasi',
                     icon: Icons.notifications_outlined,
+                    color: Theme.of(context).textTheme.bodyText1!.color,
                     onClicked: () => selectedItem(context, 1),
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
                     text: 'Pengaturan',
                     icon: Icons.settings,
+                    color: Theme.of(context).textTheme.bodyText1!.color,
                     onClicked: () => selectedItem(context, 2),
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
                     text: 'Keluar',
                     icon: Icons.logout,
+                    color: Theme.of(context).textTheme.bodyText1!.color,
                     onClicked: () => selectedItem(context, 3),
                   ),
                 ],
@@ -78,56 +78,18 @@ class AppDrawer extends StatelessWidget {
     );
   }
 
-  Widget buildHeader({
-    required String urlImage,
-    required String name,
-    required String email,
-    required VoidCallback onClicked,
-  }) =>
-      InkWell(
-        onTap: onClicked,
-        child: Container(
-          padding: padding.add(EdgeInsets.symmetric(vertical: 40)),
-          child: Row(
-            children: [
-              CircleAvatar(radius: 30, backgroundImage: NetworkImage(urlImage)),
-              SizedBox(width: 20),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    name,
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    email,
-                    style: TextStyle(fontSize: 14, color: Colors.white),
-                  ),
-                ],
-              ),
-              Spacer(),
-              CircleAvatar(
-                radius: 24,
-                backgroundColor: Color.fromRGBO(30, 60, 168, 1),
-                child: Icon(Icons.add_comment_outlined, color: Colors.black),
-              )
-            ],
-          ),
-        ),
-      );
-
   Widget buildMenuItem({
     required String text,
     required IconData icon,
+    required Color? color,
     VoidCallback? onClicked,
   }) {
-    final color = Colors.black;
-    final hoverColor = Colors.black12;
+    final iconcolor=color;
+    final hoverColor = Colors.black;
 
     return ListTile(
-      leading: Icon(icon, color: color),
-      title: Text(text, style: TextStyle(color: color)),
+      leading: Icon(icon,color:iconcolor),
+      title: Text(text),
       hoverColor: hoverColor,
       onTap: onClicked,
     );

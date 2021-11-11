@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 class ProfileMenu extends StatelessWidget {
   const ProfileMenu({
@@ -18,11 +19,10 @@ class ProfileMenu extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
       child: TextButton(
         style: TextButton.styleFrom(
-          primary: Colors.black,
+          primary: Theme.of(context).textTheme.bodyText1!.color,
           padding: EdgeInsets.all(15),
           shape:
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
-          backgroundColor: Colors.white,
         ),
         onPressed: press,
         child: Row(

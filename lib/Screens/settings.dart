@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/Variables/change_theme_button.dart';
+import 'package:mobileapp/Variables/custom_theme.dart';
+import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -8,8 +11,11 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -19,7 +25,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             Text(
               'Pengaturan',
               style: TextStyle(
-                color: Colors.black,
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
               ),
@@ -27,9 +32,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ],
         ),
         centerTitle: true,
-        backgroundColor: Colors.yellow[200],
       ),
-
+      body: Row(
+        children: [
+          Column(
+            children: [
+              Text('Mode Gelap'),
+              ChangeThemeButtonWidget(),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

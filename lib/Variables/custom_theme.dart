@@ -3,27 +3,66 @@ import 'package:mobileapp/Variables/global.dart';
 
 class CustomTheme {
   static ThemeData light(BuildContext context) => ThemeData(
-      primaryColor: Global.colors.yellow,
+      primaryColor: Colors.yellow[200],
       brightness: Brightness.light,
       fontFamily: 'PlusJakartaSans',
+      iconTheme: IconThemeData(
+        color: Colors.black,
+      ),
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      textTheme: const TextTheme(),
+      textTheme: const TextTheme(
+        bodyText1:TextStyle(color:Colors.black),
+        bodyText2:TextStyle(color:Colors.black),
+      ),
       appBarTheme: AppBarTheme(
+        titleTextStyle: TextStyle(
+          color: Colors.black,
+        ),
         foregroundColor: Colors.black,
-        color: Global.colors.yellow,
+        color: Colors.yellow[200],
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: Global.colors.yellow,
+        backgroundColor: Colors.yellow[200],
       ),
-      colorScheme: ColorScheme.light(
-        primary: Global.colors.yellow,
+      // bottomNavigationBarTheme: ,
+      colorScheme: const ColorScheme.light(
+        background: Colors.white60,
       ));
   static ThemeData dark(BuildContext context) => ThemeData(
-      primaryColor: Global.colors.yellow,
+      primaryColor: Colors.black12,
       brightness: Brightness.dark,
       fontFamily: 'PlusJakartaSans',
+      iconTheme: IconThemeData(
+        color: Colors.white,
+      ),
+      textTheme: const TextTheme(
+        bodyText1: TextStyle(color:Colors.white),
+        bodyText2:TextStyle(color:Colors.white),
+      ),
+      appBarTheme: AppBarTheme(
+        titleTextStyle: TextStyle(
+          color: Colors.white,
+        ),
+        foregroundColor: Colors.white,
+        color: Colors.black12,
+      ),
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      colorScheme: ColorScheme.dark(
-        primary: Global.colors.yellow,
-      ));
+      colorScheme: const ColorScheme.dark(
+        background: Colors.black12,
+      ),
+
+  );
+}
+
+class ThemeProvider extends ChangeNotifier {
+  ThemeMode themeMode = ThemeMode.system;
+
+  bool get isDarkMode {
+      return themeMode == ThemeMode.dark;
+  }
+
+  void toggleTheme(bool isOn) {
+    themeMode = isOn ? ThemeMode.dark : ThemeMode.light;
+    notifyListeners();
+  }
 }

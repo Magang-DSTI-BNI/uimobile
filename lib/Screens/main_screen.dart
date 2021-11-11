@@ -13,14 +13,25 @@ class MainScreen extends StatefulWidget {
   _MainScreenState createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
-  int pageIndex=0;
+class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateMixin{
+
   List<Widget> pageList=<Widget>[
     DashboardScreen(),
     MarketScreen(),
     AkunScreen(),
   ];
 
+ late TabController _controller;
+@override
+  void initState() {
+    _controller=TabController(length: 3, vsync: this);
+    _controller.addListener(() {
+      setState(() {
+        print(_controller.index);
+      });
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +44,6 @@ class _MainScreenState extends State<MainScreen> {
             Text(
               'UI Mobile-Staff',
               style: TextStyle(
-                color: Colors.black,
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
               ),
@@ -41,12 +51,12 @@ class _MainScreenState extends State<MainScreen> {
           ],
         ),
         centerTitle: true,
-        backgroundColor: Colors.yellow[200],
+        // backgroundColor: Colors.yellow[200],
       ),
-      body:pageList[pageIndex],
+      body:TabBarView(physics:NeverScrollableScrollPhysics(),children:pageList,controller: _controller,),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Colors.yellow[100],
+          color: Theme.of(context).primaryColor,
           boxShadow: [
             BoxShadow(
               blurRadius: 20,
@@ -66,7 +76,7 @@ class _MainScreenState extends State<MainScreen> {
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               duration: Duration(milliseconds: 400),
               tabBackgroundColor: Colors.yellow[300]!,
-              color: Colors.black,
+              // color: Colors.black,
               tabs: [
                 GButton(
                   icon: LineIcons.home,
@@ -81,10 +91,10 @@ class _MainScreenState extends State<MainScreen> {
                   text: 'Akun',
                 ),
               ],
-              selectedIndex: pageIndex,
+              selectedIndex: _controller.index,
               onTabChange: (index) {
                 setState(() {
-                  pageIndex = index;
+                  _controller.index = index;
                 });
               },
             ),
