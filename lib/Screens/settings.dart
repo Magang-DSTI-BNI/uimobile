@@ -33,15 +33,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
         centerTitle: true,
       ),
-      body: Row(
-        children: [
-          Column(
-            children: [
-              Text('Mode Gelap'),
-              ChangeThemeButtonWidget(),
-            ],
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(30,15,20,0),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                    'Mode Gelap',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  )
+                ),
+                ChangeThemeButtonWidget(),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
