@@ -27,7 +27,7 @@ class Urls {
 }
 
 class Global {
-  static Urls url = Urls(root: "http://192.168.137.185");
+  static Urls url = Urls(root: "http://192.168.90.220:8000");
   static Credential credential = Credential();
   // static CustomColors colors = CustomColors();
   static void snackbar(BuildContext context, String msg,

@@ -5,6 +5,8 @@ import 'package:mobileapp/Screens/akuntab/akun.dart';
 import 'package:mobileapp/Screens/dashboard.dart';
 import 'package:mobileapp/Screens/drawer.dart';
 import 'package:mobileapp/Screens/market.dart';
+import 'package:mobileapp/Variables/responsive.dart';
+import 'package:mobileapp/Screens/top_bar_contents.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -34,9 +36,11 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
   }
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
     return Scaffold(
       drawer: AppDrawer(),
-      appBar: AppBar(
+      appBar: ResponsiveWidget.isSmallScreen(context)?
+      AppBar(
         elevation: 0,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -52,55 +56,11 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
         ),
         centerTitle: true,
         // backgroundColor: Colors.yellow[200],
-      ),
-      body:TabBarView(physics:NeverScrollableScrollPhysics(),children:pageList,controller: _controller,),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor,
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 20,
-              color: Colors.black.withOpacity(.1),
-            )
-          ],
+      ):PreferredSize(
+        preferredSize: Size(screenSize.width,150),
+        child: TopBarContents(),
         ),
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
-            child: GNav(
-              rippleColor: Colors.yellow[500]!,
-              hoverColor: Colors.yellow[300]!,
-              gap: 8,
-              activeColor: Colors.black,
-              iconSize: 24,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              duration: Duration(milliseconds: 400),
-              tabBackgroundColor: Colors.yellow[300]!,
-              // color: Colors.black,
-              tabs: [
-                GButton(
-                  icon: LineIcons.home,
-                  text: 'Beranda',
-                ),
-                GButton(
-                  icon: LineIcons.alternateStore,
-                  text: 'Market',
-                ),
-                GButton(
-                  icon: LineIcons.user,
-                  text: 'Akun',
-                ),
-              ],
-              selectedIndex: _controller.index,
-              onTabChange: (index) {
-                setState(() {
-                  _controller.index = index;
-                });
-              },
-            ),
-          ),
-        ),
-      ),
+      body:DashboardScreen(),
     );
   }
 }

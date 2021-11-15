@@ -48,6 +48,7 @@ class Credential {
   }
 
   Future<bool> login({String? username, String? password}) async {
+
     try {
       final resp = await http.post(Global.url.login.uri, body: {
         'mode': 'normal',
@@ -56,12 +57,12 @@ class Credential {
         'submit': 'commit'
       });
       if (resp.statusCode == 302) {
-        if (resp.headers["set-cookie"] == null) {
-          return false;
-        } else {
-          cookie = resp.headers["set-cookie"] ?? "";
-          debugPrint("Cookie : $cookie");
-        }
+        // if (resp.headers["set-cookie"] == null) {
+        //   return false;
+        // } else {
+        //   cookie = resp.headers["set-cookie"] ?? "";
+        //   debugPrint("Cookie : $cookie");
+        // }
         _isLogin = true;
         this.username = username ?? this.username;
         this.password = password ?? this.password;
