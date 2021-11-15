@@ -86,12 +86,10 @@ class AppDrawer extends StatelessWidget {
     VoidCallback? onClicked,
   }) {
     final iconcolor=color;
-    final hoverColor = Colors.black;
 
     return ListTile(
       leading: Icon(icon,color:iconcolor),
       title: Text(text),
-      hoverColor: hoverColor,
       onTap: onClicked,
     );
   }
