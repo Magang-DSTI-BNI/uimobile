@@ -1,6 +1,6 @@
 {
-    "name": "mobileapp",
-    "short_name": "mobileapp",
+    "name": "uimobile_web",
+    "short_name": "uimobile_web",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
