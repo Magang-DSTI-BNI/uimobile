@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:uimobile_web/Models/category_bar.dart';
+
 
 class InformasiPribadiScreen extends StatefulWidget {
   const InformasiPribadiScreen({ Key? key }) : super(key: key);
@@ -12,6 +14,8 @@ class InformasiPribadiScreen extends StatefulWidget {
 class _InformasiPribadiScreen extends State<InformasiPribadiScreen> {
   @override
   Widget build(BuildContext context) {
+    final List<String> entries = <String>['A', 'B', 'C'];
+    final List<int> colorCodes = <int>[600, 500, 100];
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60.0),
@@ -19,10 +23,13 @@ class _InformasiPribadiScreen extends State<InformasiPribadiScreen> {
           elevation: 1,
           backgroundColor: Colors.white,
           title: 
-            Image.asset(
-              "assets/icons/logo_extended.png",
-              height: 51,
-              width: 168,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                "assets/images/icons/logo_extended.png",
+                height: 38,
+                width: 168,
+              ),
             ),
           actions: <Widget> [
             Padding(
@@ -49,7 +56,21 @@ class _InformasiPribadiScreen extends State<InformasiPribadiScreen> {
                   )),
               ),
             ]
-          ),)
+          ),),
+          body: 
+
+ListView.builder(
+  padding: const EdgeInsets.all(8),
+  scrollDirection: Axis.horizontal,
+  itemCount: entries.length,
+  itemBuilder: (BuildContext context, int index) {
+    return Container(
+      height: 700,
+      color: Colors.amber[colorCodes[index]],
+      child: Center(child: Text('Entry ${entries[index]}')),
+    );
+  }
+)
       
     );
   }
