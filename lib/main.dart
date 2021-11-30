@@ -9,9 +9,9 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'UI Mobile - Staff',
-      home: const InformasiPribadiScreen(),
+      home: InformasiPribadiScreen(),
       // themeMode: ThemeMode.system,
       // theme: CustomTheme.light(context),
       // darkTheme: CustomTheme.dark(context),

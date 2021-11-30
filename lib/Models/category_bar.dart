@@ -4,7 +4,7 @@ class CategoryBar extends StatefulWidget {
   const CategoryBar({ Key? key }) : super(key: key);
 
   @override
-  _CategoryBarState createState() => new _CategoryBarState();
+  _CategoryBarState createState() => _CategoryBarState();
 }
 
 class _CategoryBarState extends State<CategoryBar> {
