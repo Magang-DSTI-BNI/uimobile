@@ -18,9 +18,9 @@ class _FillCategoryButtonState extends State<FillCategoryButton> {
     return ElevatedButton(
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(2.0),
-            child: const Icon(Icons.circle),
+          const Padding(
+            padding: EdgeInsets.all(2.0),
+            child: Icon(Icons.circle),
           ),
           Text(
             widget.text,
@@ -42,7 +42,6 @@ class _FillCategoryButtonState extends State<FillCategoryButton> {
       
       onPressed: () => setState(() {
         pressAttention = !pressAttention;
-
       }),
     );
   }
