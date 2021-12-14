@@ -15,7 +15,26 @@ class InformasiPribadiScreen extends StatefulWidget {
 }
 
 class _InformasiPribadiScreen extends State<InformasiPribadiScreen> {
-  String kebangsaanValue = 'Warga Negara A';
+  final itemsKebangsaan = ['Warga Negara A', 'Warga Negara B', 'Warga Negara C', 'Warga Negara D'];
+  final itemsSalutation = ['Nona', 'Nyonya', 'Tuan'];
+  final itemsJenisKelamin = ['Wanita', 'Pria'];
+  final itemsAgama = ['Budha', 'Katolik', 'Kristen', 'Hindu', 'Islam', 'Kepercayaan', 'Konghucu', 'N/A', 'Protestan'];
+  final itemsStatusPernikahan = ['Menikah', 'Belum menikah'];
+  String? valueKebangsaan;
+  String? valueSalutation;
+  String? valueJenisKelamin;
+  String? valueAgama;
+  String? valueStatusPernikahan;
+
+  DropdownMenuItem<String> buildMenuItem(String item) =>
+      DropdownMenuItem(
+        value: item,
+        child: Text(
+        item,
+        style: const TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+      )
+        );
+      
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -161,27 +180,195 @@ class _InformasiPribadiScreen extends State<InformasiPribadiScreen> {
                                 borderRadius: BorderRadius.circular(4)
                               ),
                               child: DropdownButton<String>(
-                                value: kebangsaanValue,
+                                value: valueKebangsaan,
                                 hint: const Text('Pilih Kebangsaan'),
                                 icon: const Icon(Icons.arrow_drop_down_rounded),
                                 iconSize: 24,
+                                isExpanded: true,
 
-                                onChanged: (String? newValue) {
+                                onChanged: (valueKebangsaan) {
                                   setState(() {
-                                    kebangsaanValue = newValue!;
+                                    this.valueKebangsaan = valueKebangsaan;
                                   });
                                 },
                                 
-                                items: <String>['Warga Negara A', 'Warga Negara B', 'Warga Negara C', 'Warga Negara D'].map((String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value),
-                                  );
-                                }).toList(),
-
-                                
+                                items: itemsKebangsaan.map(buildMenuItem).toList(),
                               ),
                             )
+                          ),
+                        ),
+
+                        const Padding(
+                          padding: EdgeInsets.only(top: 30.0, left: 65),
+                          child: Text(
+                            'Salutation',
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 270,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 12.0, bottom: 12.0, left: 65),
+                            child: Container(
+                              padding: const EdgeInsets.only(top: 2, right: 10, left: 10, bottom: 2),
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(4)
+                              ),
+                              child: DropdownButton<String>(
+                                value: valueSalutation,
+                                hint: const Text('Pilih Salutation'),
+                                icon: const Icon(Icons.arrow_drop_down_rounded),
+                                iconSize: 24,
+                                isExpanded: true,
+
+                                onChanged: (valueSalutation) {
+                                  setState(() {
+                                    this.valueSalutation = valueSalutation;
+                                  });
+                                },
+                                
+                                items: itemsSalutation.map(buildMenuItem).toList(),
+                              ),
+                            )
+                          ),
+                        ),
+
+                        const Padding(
+                          padding: EdgeInsets.only(top: 30.0, left: 65),
+                          child: Text(
+                            'Jenis Kelamin',
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 270,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 12.0, bottom: 12.0, left: 65),
+                            child: Container(
+                              padding: const EdgeInsets.only(top: 2, right: 10, left: 10, bottom: 2),
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(4)
+                              ),
+                              child: DropdownButton<String>(
+                                value: valueJenisKelamin,
+                                hint: const Text('Pilih Jenis Kelamin'),
+                                icon: const Icon(Icons.arrow_drop_down_rounded),
+                                iconSize: 24,
+                                isExpanded: true,
+
+                                onChanged: (valueJenisKelamin) {
+                                  setState(() {
+                                    this.valueJenisKelamin = valueJenisKelamin;
+                                  });
+                                },
+                                
+                                items: itemsJenisKelamin.map(buildMenuItem).toList(),
+                              ),
+                            )
+                          ),
+                        ),
+
+                        const Padding(
+                          padding: EdgeInsets.only(top: 30.0, left: 65),
+                          child: Text(
+                            'Agama',
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 270,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 12.0, bottom: 12.0, left: 65),
+                            child: Container(
+                              padding: const EdgeInsets.only(top: 2, right: 10, left: 10, bottom: 2),
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(4)
+                              ),
+                              child: DropdownButton<String>(
+                                value: valueAgama,
+                                hint: const Text('Pilih Agama'),
+                                icon: const Icon(Icons.arrow_drop_down_rounded),
+                                iconSize: 24,
+                                isExpanded: true,
+
+                                onChanged: (valueAgama) {
+                                  setState(() {
+                                    this.valueAgama = valueAgama;
+                                  });
+                                },
+                                
+                                items: itemsAgama.map(buildMenuItem).toList(),
+                              ),
+                            )
+                          ),
+                        ),
+
+                        const Padding(
+                          padding: EdgeInsets.only(top: 30.0, left: 65),
+                          child: Text(
+                            'Status Perikahan',
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 300,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 12.0, bottom: 12.0, left: 65),
+                            child: Container(
+                              padding: const EdgeInsets.only(top: 2, right: 10, left: 10, bottom: 2),
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(4)
+                              ),
+                              child: DropdownButton<String>(
+                                value: valueStatusPernikahan,
+                                hint: const Text('Pilih Status Pernikahan'),
+                                icon: const Icon(Icons.arrow_drop_down_rounded),
+                                iconSize: 24,
+                                isExpanded: true,
+
+                                onChanged: (valueStatusPernikahan) {
+                                  setState(() {
+                                    this.valueStatusPernikahan = valueStatusPernikahan;
+                                  });
+                                },
+                                
+                                items: itemsStatusPernikahan.map(buildMenuItem).toList(),
+                              ),
+                            )
+                          ),
+                        ),
+
+                        const Padding(
+                          padding: EdgeInsets.only(top: 30.0, left: 65),
+                          child: Text(
+                            'Tempat Pernikahan',
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 512,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 12.0, bottom: 12.0, left: 65),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'ex: Jakarta',
+                              ),
+                            ),
                           ),
                         ),
                       ],
