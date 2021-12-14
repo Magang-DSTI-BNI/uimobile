@@ -371,6 +371,41 @@ class _InformasiPribadiScreen extends State<InformasiPribadiScreen> {
                             ),
                           ),
                         ),
+
+                        const Padding(
+                          padding: EdgeInsets.only(top: 30.0, left: 65),
+                          child: Text(
+                            'Tanggal Perhikahan',
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            const SizedBox(
+                              width: 270,
+                              child: Padding(
+                                padding: EdgeInsets.only(top: 12.0, bottom: 12.0, left: 65),
+                                child: TextField(
+                                  enabled: false,
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                    hintText: 'Tanggal/Bulan/Tahun',
+                                  ),
+                                ),
+                              ),
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.calendar_today),
+                              iconSize: 24,
+                              splashRadius: 18,
+                              hoverColor: Colors.transparent, 
+                              onPressed: () {
+                                
+                              },),
+                          ],
+                        ),
                       ],
                     ),
                   ),
