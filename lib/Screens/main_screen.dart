@@ -35,70 +35,14 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: AppDrawer(),
-      appBar: AppBar(
-        elevation: 0,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(
-              'UI Mobile-Staff',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ],
-        ),
-        centerTitle: true,
-        // backgroundColor: Colors.yellow[200],
-      ),
-      body:TabBarView(physics:NeverScrollableScrollPhysics(),children:pageList,controller: _controller,),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor,
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 20,
-              color: Colors.black.withOpacity(.1),
-            )
-          ],
-        ),
+      // appBar: AppBar(
+      //   elevation: 0,
+      //   // backgroundColor: Colors.yellow[200],
+      // ),
+      body:Container(
+        color: Theme.of(context).primaryColor,
         child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
-            child: GNav(
-              rippleColor: Colors.yellow[500]!,
-              hoverColor: Colors.yellow[300]!,
-              gap: 8,
-              activeColor: Colors.black,
-              iconSize: 24,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              duration: Duration(milliseconds: 400),
-              tabBackgroundColor: Colors.yellow[300]!,
-              // color: Colors.black,
-              tabs: [
-                GButton(
-                  icon: LineIcons.home,
-                  text: 'Beranda',
-                ),
-                GButton(
-                  icon: LineIcons.alternateStore,
-                  text: 'Market',
-                ),
-                GButton(
-                  icon: LineIcons.user,
-                  text: 'Akun',
-                ),
-              ],
-              selectedIndex: _controller.index,
-              onTabChange: (index) {
-                setState(() {
-                  _controller.index = index;
-                });
-              },
-            ),
-          ),
+            child: AkunScreen()
         ),
       ),
     );
