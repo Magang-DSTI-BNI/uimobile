@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/Screens/settings.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:mobileapp/Screens/drawer.dart';
 import 'package:mobileapp/Screens/login.dart';
@@ -158,39 +159,58 @@ class _AkunScreenState extends State<AkunScreen> {
                 ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20.0),
-                  child: Container(
-                    padding: const EdgeInsets.all(8),
-                    child: Column(
-                      mainAxisAlignment:MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Icon(Icons.settings,size: 30,),
-                        const Text('Pengaturan',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                          ),),
-                      ],
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context)=>const SettingsScreen()));
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      child: Column(
+                        mainAxisAlignment:MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Icon(Icons.settings,size: 30,),
+                          const Text('Pengaturan',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                            ),),
+                        ],
+                      ),
+                      color: Theme.of(context).primaryColor,
                     ),
-                    color: Theme.of(context).primaryColor,
                   ),
                 ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20.0),
-                  child: Container(
-                    padding: const EdgeInsets.all(8),
-                    child: Column(
-                      mainAxisAlignment:MainAxisAlignment.spaceEvenly ,
-                      children: [
-                        Icon(Icons.logout,size: 30,),
-                        const Text('Keluar',
-                          style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
+                  child: InkWell(
+                    onTap: (){
+                      Global.credential.logout().then((value) {
+                        if(value){
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => LoginScreen(),
+                          ));
+                        }else{
+                          Global.snackbar(context, 'tidak dapat keluar');
+                        }
+                      });
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      child: Column(
+                        mainAxisAlignment:MainAxisAlignment.spaceEvenly ,
+                        children: [
+                          Icon(Icons.logout,size: 30,),
+                          const Text('Keluar',
+                            style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
+                      color: Colors.red[400],
                     ),
-                    color: Colors.red[200],
                   ),
                 ),
               ],

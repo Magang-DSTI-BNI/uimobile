@@ -19,7 +19,7 @@ class CustomTheme {
           color: Colors.black,
         ),
         foregroundColor: Colors.black,
-        color: Colors.yellow[200],
+        color: Colors.yellow[500],
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: Colors.yellow[200],
