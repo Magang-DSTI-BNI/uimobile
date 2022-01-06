@@ -105,56 +105,71 @@ class _AkunScreenState extends State<AkunScreen> {
               children: <Widget>[
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20.0),
-                  child: Container(
-                    padding: const EdgeInsets.all(8),
-                    child: Column(
-                      mainAxisAlignment:MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Icon(Icons.account_circle,size: 30,),
-                        const Text("Data Diri",
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                          ),),
-                      ],
+                  child: InkWell(
+                    onTap: (){
+
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      child: Column(
+                        mainAxisAlignment:MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Icon(Icons.account_circle,size: 30,),
+                          const Text("Data Diri",
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                            ),),
+                        ],
+                      ),
+                      color: Theme.of(context).primaryColor,
                     ),
-                    color: Theme.of(context).primaryColor,
                   ),
                 ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20.0),
-                  child: Container(
-                    padding: const EdgeInsets.all(8),
-                    child: Column(
-                      mainAxisAlignment:MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Icon(Icons.fact_check,size: 30,),
-                        const Text('Absensi',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                          ),),
-                      ],
+                  child: InkWell(
+                    onTap: (){
+
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      child: Column(
+                        mainAxisAlignment:MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Icon(Icons.fact_check,size: 30,),
+                          const Text('Absensi',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                            ),),
+                        ],
+                      ),
+                      color: Theme.of(context).primaryColor,
                     ),
-                    color: Theme.of(context).primaryColor,
                   ),
                 ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20.0),
-                  child: Container(
-                    padding: const EdgeInsets.all(8),
-                    child: Column(
-                      mainAxisAlignment:MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Icon(Icons.account_balance_wallet,size: 30,),
-                        const Text('UI pay',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                          ),),
-                      ],
+                  child: InkWell(
+                    onTap: (){
+
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      child: Column(
+                        mainAxisAlignment:MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Icon(Icons.account_balance_wallet,size: 30,),
+                          const Text('UI pay',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                            ),),
+                        ],
+                      ),
+                      color: Theme.of(context).primaryColor,
                     ),
-                    color: Theme.of(context).primaryColor,
                   ),
                 ),
                 ClipRRect(
