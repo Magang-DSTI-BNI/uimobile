@@ -3,7 +3,7 @@ import 'package:mobileapp/Variables/global.dart';
 
 class CustomTheme {
   static ThemeData light(BuildContext context) => ThemeData(
-      primaryColor: Colors.yellow[200],
+      primaryColor: Colors.yellow[500],
       brightness: Brightness.light,
       fontFamily: 'PlusJakartaSans',
       iconTheme: IconThemeData(
