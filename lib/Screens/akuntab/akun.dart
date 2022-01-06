@@ -94,26 +94,33 @@ class _AkunScreenState extends State<AkunScreen> {
                 ],
               ),
             ),
+            SizedBox(
+              height: 400,
+              child: GridView.count(
+                primary: false,
+                padding: const EdgeInsets.all(10),
+                crossAxisSpacing: 5,
+                mainAxisSpacing: 5,
+                crossAxisCount: 2,
+                children: <Widget>[
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    child: const Text("Data Diri"),
+                    color: Colors.teal[100],
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    child: const Text('Absen'),
+                    color: Colors.teal[200],
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    child: const Text('UI pay'),
+                    color: Colors.teal[300],
+                  ),
 
-            ProfileMenu(
-              icon: LineIcons.addressCard,
-              text: "Data diri",
-              press: () {},
-            ),
-            ProfileMenu(
-              icon:LineIcons.sitemap,
-              text: "Status kepegawaian",
-              press: () {},
-            ),
-            ProfileMenu(
-              icon:Icons.business,
-              text: "Karir",
-              press: () {},
-            ),
-            ProfileMenu(
-              icon:LineIcons.graduationCap,
-              text: "Pendidikan",
-              press: () {},
+                ],
+              ),
             ),
           ],
         ),

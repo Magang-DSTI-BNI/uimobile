@@ -15,30 +15,9 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateMixin{
 
-  List<Widget> pageList=<Widget>[
-    DashboardScreen(),
-    MarketScreen(),
-    AkunScreen(),
-  ];
-
- late TabController _controller;
-@override
-  void initState() {
-    _controller=TabController(length: 3, vsync: this);
-    _controller.addListener(() {
-      setState(() {
-        print(_controller.index);
-      });
-    });
-    super.initState();
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   elevation: 0,
-      //   // backgroundColor: Colors.yellow[200],
-      // ),
       body:Container(
         color: Theme.of(context).primaryColor,
         child: SafeArea(
