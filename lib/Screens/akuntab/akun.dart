@@ -22,30 +22,76 @@ class _AkunScreenState extends State<AkunScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body:SingleChildScrollView(
-        padding: EdgeInsets.symmetric(vertical: 20),
         child: Column(
           children: [
-            SizedBox(
-              height: 115,
-              width: 115,
-              child: Stack(
-                fit: StackFit.expand,
-                clipBehavior: Clip.none,
+            Container(
+              color: Theme.of(context).primaryColor,
+              child: Row(
                 children: [
-                  CircleAvatar(
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(18, 18, 16, 18),
+                    child: SizedBox(
+                      height: 115,
+                      width: 115,
+                      child: Stack(
+                        fit: StackFit.expand,
+                        clipBehavior: Clip.none,
+                        children: [
+                          CircleAvatar(
 
+                          ),
+
+                        ],
+                      ),
+                    ),
                   ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 2, 0, 2),
+                        child: Text(
+                          'nama panjang',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 2, 0, 2),
+                        child: Text(
+                          'nip',
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 2, 0, 2),
+                        child: Text(
+                          'unit organisasi',
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 2, 0, 8),
+                        child: Text(
+                          'posisi',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
                 ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 8, 0, 16),
-              child: Text(
-                'nama',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                ),
               ),
             ),
 
