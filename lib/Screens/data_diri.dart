@@ -59,7 +59,7 @@ class _DataDiriState extends State<DataDiri> {
                     ),
                     // const SizedBox(height: 16),
                     const Divider(
-                      height: 20,
+                      height: 30,
                       thickness: 1,
                       indent: 0,
                       endIndent: 0,
@@ -84,7 +84,7 @@ class _DataDiriState extends State<DataDiri> {
                       ],
                     ),
                     const Divider(
-                      height: 20,
+                      height: 30,
                       thickness: 1,
                       indent: 0,
                       endIndent: 0,
@@ -109,7 +109,7 @@ class _DataDiriState extends State<DataDiri> {
                       ],
                     ),
                     const Divider(
-                      height: 20,
+                      height: 30,
                       thickness: 1,
                       indent: 0,
                       endIndent: 0,
@@ -134,7 +134,7 @@ class _DataDiriState extends State<DataDiri> {
                       ],
                     ),
                     const Divider(
-                      height: 20,
+                      height: 30,
                       thickness: 1,
                       indent: 0,
                       endIndent: 0,
@@ -159,7 +159,7 @@ class _DataDiriState extends State<DataDiri> {
                       ],
                     ),
                     const Divider(
-                      height: 20,
+                      height: 30,
                       thickness: 1,
                       indent: 0,
                       endIndent: 0,
@@ -184,7 +184,7 @@ class _DataDiriState extends State<DataDiri> {
                       ],
                     ),
                     const Divider(
-                      height: 20,
+                      height: 30,
                       thickness: 1,
                       indent: 0,
                       endIndent: 0,
@@ -209,7 +209,7 @@ class _DataDiriState extends State<DataDiri> {
                       ],
                     ),
                     const Divider(
-                      height: 20,
+                      height: 30,
                       thickness: 1,
                       indent: 0,
                       endIndent: 0,
@@ -234,7 +234,7 @@ class _DataDiriState extends State<DataDiri> {
                       ],
                     ),
                     const Divider(
-                      height: 20,
+                      height: 30,
                       thickness: 1,
                       indent: 0,
                       endIndent: 0,
@@ -259,7 +259,7 @@ class _DataDiriState extends State<DataDiri> {
                       ],
                     ),
                     const Divider(
-                      height: 20,
+                      height: 30,
                       thickness: 1,
                       indent: 0,
                       endIndent: 0,
@@ -284,7 +284,7 @@ class _DataDiriState extends State<DataDiri> {
                       ],
                     ),
                     const Divider(
-                      height: 20,
+                      height: 30,
                       thickness: 1,
                       indent: 0,
                       endIndent: 0,
@@ -309,7 +309,7 @@ class _DataDiriState extends State<DataDiri> {
                       ],
                     ),
                     const Divider(
-                      height: 20,
+                      height: 30,
                       thickness: 1,
                       indent: 0,
                       endIndent: 0,
