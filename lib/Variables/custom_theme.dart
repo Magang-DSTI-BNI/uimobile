@@ -26,7 +26,7 @@ class CustomTheme {
       ),
       // bottomNavigationBarTheme: ,
       colorScheme: const ColorScheme.light(
-        background: Colors.white60,
+        background: Colors.white,
       ));
   static ThemeData dark(BuildContext context) => ThemeData(
       primaryColor: Colors.black12,

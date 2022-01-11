@@ -29,11 +29,13 @@ class _AbsensiState extends State<Absensi> {
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30,15,20,0),
-        child: Column(
-          children: [
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
 
-          ],
-        ),
+            ],
+          ),
+        )
       ),
     );
   }
