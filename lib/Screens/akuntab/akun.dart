@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/Screens/absensi.dart';
+import 'package:mobileapp/Screens/data_diri.dart';
 import 'package:mobileapp/Screens/settings.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:mobileapp/Screens/drawer.dart';
 import 'package:mobileapp/Screens/login.dart';
+import 'package:mobileapp/Screens/ui_pay.dart';
 import 'package:mobileapp/Variables/global.dart';
 import 'package:mobileapp/Models/news.dart';
 import 'package:mobileapp/Models/pages.dart';
@@ -25,8 +28,15 @@ class _AkunScreenState extends State<AkunScreen> {
       body:Column(
         children: [
           Container(
-            color: Theme.of(context).primaryColor,
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(10),
+                bottomRight: Radius.circular(10),
+              ),
+              color: Theme.of(context).primaryColor,
+            ),
             child: Row(
+
               children: [
                 Padding(
                   padding: const EdgeInsets.fromLTRB(18, 30, 16, 18),
@@ -51,7 +61,7 @@ class _AkunScreenState extends State<AkunScreen> {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 2, 0, 2),
                       child: Text(
-                        'Pascalis Reinard Rickyputra',
+                        'Nama Panjang Nama Panjang',
                         style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w700,
@@ -107,7 +117,8 @@ class _AkunScreenState extends State<AkunScreen> {
                   borderRadius: BorderRadius.circular(20.0),
                   child: InkWell(
                     onTap: (){
-
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context)=>const DataDiri()));
                     },
                     child: Container(
                       padding: const EdgeInsets.all(8),
@@ -130,7 +141,8 @@ class _AkunScreenState extends State<AkunScreen> {
                   borderRadius: BorderRadius.circular(20.0),
                   child: InkWell(
                     onTap: (){
-
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context)=>const Absensi()));
                     },
                     child: Container(
                       padding: const EdgeInsets.all(8),
@@ -153,7 +165,8 @@ class _AkunScreenState extends State<AkunScreen> {
                   borderRadius: BorderRadius.circular(20.0),
                   child: InkWell(
                     onTap: (){
-
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context)=>const UIPay()));
                     },
                     child: Container(
                       padding: const EdgeInsets.all(8),
