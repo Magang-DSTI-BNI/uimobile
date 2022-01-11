@@ -31,8 +31,8 @@ class _AkunScreenState extends State<AkunScreen> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(18, 30, 16, 18),
                   child: SizedBox(
-                    height: 115,
-                    width: 115,
+                    height: 80,
+                    width: 80,
                     child: Stack(
                       fit: StackFit.expand,
                       clipBehavior: Clip.none,
@@ -51,9 +51,9 @@ class _AkunScreenState extends State<AkunScreen> {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 2, 0, 2),
                       child: Text(
-                        'nama panjang',
+                        'Pascalis Reinard Rickyputra',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 17,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -63,7 +63,7 @@ class _AkunScreenState extends State<AkunScreen> {
                       child: Text(
                         'nip',
                         style: TextStyle(
-                          fontSize: 17,
+                          fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -73,7 +73,7 @@ class _AkunScreenState extends State<AkunScreen> {
                       child: Text(
                         'unit organisasi',
                         style: TextStyle(
-                          fontSize: 17,
+                          fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -84,7 +84,7 @@ class _AkunScreenState extends State<AkunScreen> {
                         'posisi',
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                          fontSize: 17,
+                          fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -98,7 +98,7 @@ class _AkunScreenState extends State<AkunScreen> {
             height: 300,
             child: GridView.count(
               primary: true,
-              padding: const EdgeInsets.fromLTRB(20, 60, 20, 0),
+              padding: const EdgeInsets.fromLTRB(20, 30, 20, 0),
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
               crossAxisCount: 4,
